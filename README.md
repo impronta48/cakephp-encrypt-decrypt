@@ -64,12 +64,17 @@ class AccountsTable extends Table
     * @param TableSchemaInterface $schema
     * @return TableSchemaInterface
     */
-    protected function _initializeSchema(TableSchemaInterface $schema): TableSchemaInterface
+    public function initialize(array $config): void
     {
-      $schema->setColumnType('account_number', 'encrypted');
-      $schema->setColumnType('email', 'encrypted');
+
+        parent::initialize($config);
+
+        //... rest of initialization
+
+      $this->getSchema()->setColumnType('account_number', 'encrypted');
+      $this->getSchema()->setColumnType('email', 'encrypted');
+
       
-      return $schema;
     }
 }
 ```
