@@ -22,7 +22,8 @@ class EncryptType extends BaseType
      * @param Driver $driver
      * @return mixed|string|null
      */
-    public function toDatabase($value, DriverInterface $driver){
+    public function toDatabase($value, \Cake\Database\Driver $driver): mixed
+    {
 
         if ($value === null) {
             return null;
@@ -48,7 +49,8 @@ class EncryptType extends BaseType
      * @param Driver $driver
      * @return mixed|string|null
      */
-    public function toPHP($value, DriverInterface $driver){
+    public function toPHP($value,  \Cake\Database\Driver $driver): mixed
+    {
         if ($value === null) {
             return null;
         }
@@ -59,7 +61,7 @@ class EncryptType extends BaseType
      * @param $value
      * @return mixed
      */
-    public function marshal($value)
+    public function marshal($value): mixed
     {
         if ($value === null) {
             return null;
@@ -77,7 +79,7 @@ class EncryptType extends BaseType
      * @param Driver $driver
      * @return int|mixed
      */
-    public function toStatement($value, DriverInterface $driver)
+    public function toStatement($value,  \Cake\Database\Driver $driver): int
     {
         if ($value === null) {
             return PDO::PARAM_NULL;
@@ -85,5 +87,4 @@ class EncryptType extends BaseType
 
         return PDO::PARAM_STR;
     }
-
 }
